@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Offres{% endblock %}
+
+{% block body %}
+<div class="hero-section" style="padding: 80px;">
+    <div class="content" style="max-width: 1400px; margin: 0 auto;">
+        <div class="buttons">
+            <a href="{{ path('home') }}" class="btn btn-primary">Retour à l'accueil</a>
+            {% if app.user and 'ROLE_ASSOCIATION' in app.user.roles %}
+                <a href="{{ path('offre_ajouter') }}" class="btn btn-warning">Ajouter une Offre</a>
+            {% endif %}
+        </div>
+
+        <h1>Liste des Offres</h1>
+
+        <div class="table-container" style="overflow-x: auto; margin-top: 20px;">
+            <table class="offer-table" style="width: 100%; border-collapse: collapse; font-size: 16px; text-align: left; background-color: #fff;">
+                <thead>
+                    <tr>
+                        <th style="color: #000; font-weight: bold; padding: 12px;">Titre</th>
+                        <th style="color: #000; font-weight: bold; padding: 12px;">Description</th>
+                        <th style="color: #000; font-weight: bold; padding: 12px;">Date de début</th>
+                        <th style="color: #000; font-weight: bold; padding: 12px;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for offre in offres %}
+                        <tr>
+                            <td style="color: #000; padding: 12px;">{{ offre.titre }}</td>
+                            <td style="color: #000; padding: 12px;">{{ offre.description }}</td>
+                            <td style="color: #000; padding: 12px;">{{ offre.dateDebut|date('d-m-Y') }}</td>
+                            <td style="color: #000; padding: 12px;">
+                                {% if app.user and 'ROLE_BENEVOLE' in app.user.roles %}
+                                    <a href="{{ path('candidature_new', {'offreId': offre.id}) }}" class="btn btn-success">Candidater</a>
+                                {% endif %}
+                                {% if app.user and 'ROLE_ASSOCIATION' in app.user.roles %}
+                                    <a href="{{ path('offre_supprimer', {'id': offre.id}) }}" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette offre ?');">Supprimer</a>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="4" style="color: #000; padding: 12px; text-align: center;">Aucune offre trouvée.</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

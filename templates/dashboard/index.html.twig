@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block body %}
+<div class="hero-section" style="padding: 80px;">
+    <div class="content" style="max-width: 1600px; margin: 0 auto;">
+        <div class="buttons">
+            <a href="{{ path('home') }}" class="btn btn-primary">Retour à l'accueil</a>
+        </div>
+
+        <h1>Dashboard</h1>
+
+        <div class="dashboard-container" style="background-color: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);">
+            <p style="color: #000; font-size: 18px;">Bienvenue sur votre Dashboard. Ici, vous pouvez gérer vos offres, consulter les candidatures et mettre à jour les informations de votre association.</p>
+
+            <div class="buttons">
+                <a href="{{ path('offre_ajouter') }}" class="btn btn-success">Ajouter une Offre</a>
+                <a href="{{ path('offre_index') }}" class="btn btn-info">Voir les Offres</a>
+                <a href="{{ path('candidature_index') }}" class="btn btn-warning">Voir les Candidatures</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

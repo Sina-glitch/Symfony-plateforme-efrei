@@ -1,0 +1,32 @@
+        {% extends 'base.html.twig' %}
+
+        {% block title %}Accueil{% endblock %}
+
+        {% block body %}
+        <div class="hero-section">
+            <div class="content">
+                <div class="buttons">
+                    <a href="{{ path('association_index') }}" class="btn btn-primary">Trouver une association</a>
+
+                    {% if app.user and 'ROLE_ASSOCIATION' in app.user.roles %}
+                        <a href="{{ path('offre_ajouter') }}" class="btn btn-warning">Ajouter une offre de mission</a>
+                        <a href="{{ path('dashboard') }}" class="btn btn-secondary">Dashboard</a>
+                    {% elseif app.user and 'ROLE_BENEVOLE' in app.user.roles %}
+                        <a href="{{ path('offre_index') }}" class="btn btn-info">Offres de mission</a>
+                        <a href="{{ path('candidature_index') }}" class="btn btn-success">Mes candidatures</a>
+                    {% endif %}
+
+                    <a href="{{ path('app_logout') }}" class="btn btn-danger">Se déconnecter</a>
+                </div>
+
+                <div class="logo">
+                    <h1>Plateforme de Collaboration</h1>
+                </div>
+                <h2>Bienvenue sur la plateforme de collaboration entre associations et bénévoles</h2>
+                <p>Connectez les associations à des bénévoles motivés pour des missions enrichissantes !</p>
+            </div>
+            <div class="image">
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/032/474/425/small_2x/3d-super-hero-character-ai-generative-png.png" alt="Hero Image">
+            </div>
+        </div>
+        {% endblock %}

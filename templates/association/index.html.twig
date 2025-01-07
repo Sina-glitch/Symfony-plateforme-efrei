@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Associations{% endblock %}
+
+{% block body %}
+<div class="hero-section">
+    <div class="content">
+        <div class="buttons">
+            <a href="{{ path('home') }}" class="btn btn-primary">Retour à l'accueil</a>
+            {% if app.user and 'ROLE_ASSOCIATION' in app.user.roles %}
+                <a href="{{ path('association_ajouter') }}" class="btn btn-warning">Ajouter une Association</a>
+            {% endif %}
+        </div>
+
+        <h1>Liste des Associations</h1>
+
+        <div class="table-container">
+            <table class="association-table">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Description</th>
+                        {% if app.user and 'ROLE_ASSOCIATION' in app.user.roles %}
+                            <th>Actions</th>
+                        {% endif %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for association in associations %}
+                        <tr>
+                            <td style="color: #000;">{{ association.nom }}</td>
+                            <td style="color: #000;">{{ association.description }}</td>
+                            {% if app.user and 'ROLE_ASSOCIATION' in app.user.roles %}
+                                <td style="text-align: center;">
+                                    <a href="{{ path('association_modifier', { id: association.id }) }}" class="btn btn-warning">Modifier</a>
+                                </td>
+                            {% endif %}
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="3" style="color: #000; text-align: center;">Aucune association trouvée.</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

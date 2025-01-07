@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un bénévole{% endblock %}
+
+{% block body %}
+<h1>Ajouter un bénévole</h1>
+
+<form method="post">
+    <label for="nom">Nom :</label>
+    <input type="text" name="nom" id="nom" required><br>
+
+    <label for="prenom">Prénom :</label>
+    <input type="text" name="prenom" id="prenom" required><br>
+
+    <label for="email">Email :</label>
+    <input type="email" name="email" id="email"><br>
+
+    <button type="submit">Enregistrer</button>
+</form>
+
+<a href="{{ path('benevole_index') }}">Retour à la liste des bénévoles</a>
+{% endblock %}

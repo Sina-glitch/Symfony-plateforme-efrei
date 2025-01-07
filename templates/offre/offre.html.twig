@@ -1,0 +1,20 @@
+    {% extends 'base.html.twig' %}
+
+    {% block title %}Ajouter une offre{% endblock %}
+
+    {% block body %}
+    <h1>Ajouter une offre</h1>
+
+    <form method="post">
+        <div>
+            <label for="titre">Titre :</label>
+            <input type="text" id="titre" name="titre" required>
+        </div>
+        <div>
+            <label for="description">Description :</label>
+            <textarea id="description" name="description" required></textarea>
+        </div>
+        <button type="submit">Ajouter</button>
+    </form>
+    <a href="{{ path('offre_index') }}">Retour aux offres</a>
+    {% endblock %}

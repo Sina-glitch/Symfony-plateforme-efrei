@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détail de l’offre{% endblock %}
+
+{% block body %}
+<h1>{{ offre.titre }}</h1>
+
+<p>{{ offre.description }}</p>
+
+<h3>Lieu</h3>
+<p>{{ offre.lieu }}</p>
+
+<h3>Date de début</h3>
+<p>{{ offre.dateDebut|date('d/m/Y') }}</p>
+
+{% if app.user and 'ROLE_BENEVOLE' in app.user.roles %}
+    <a href="{{ path('candidature_new', {'offreId': offre.id}) }}" class="btn btn-success">Postuler à cette offre</a>
+{% endif %}
+
+<a href="{{ path('offre_index') }}" class="btn btn-primary">Retour à la liste des offres</a>
+{% endblock %}

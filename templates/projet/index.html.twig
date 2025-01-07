@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des projets{% endblock %}
+
+{% block body %}
+<h1>Liste des projets</h1>
+
+<ul>
+    {% for projet in projets %}
+        <li>{{ projet.titre }} - {{ projet.description }}</li>
+    {% endfor %}
+</ul>
+
+<a href="{{ path('projet_ajouter') }}">Ajouter un projet</a>
+{% endblock %}

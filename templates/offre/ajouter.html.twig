@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter une Offre{% endblock %}
+
+{% block body %}
+<div class="hero-section" style="padding: 80px;">
+    <div class="content" style="max-width: 1600px; margin: 0 auto;">
+        <div class="buttons">
+            <a href="{{ path('home') }}" class="btn btn-primary">Retour à l'accueil</a>
+        </div>
+
+        <h1>Ajouter une Offre</h1>
+
+        <form method="post" action="{{ path('offre_ajouter') }}" class="form-container" style="background-color: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); width: 100%;">
+            <div class="form-group" style="margin-bottom: 20px;">
+                <label for="titre" style="display: block; font-weight: bold; color: #000; margin-bottom: 10px;">Titre de l'offre</label>
+                <input type="text" id="titre" name="titre" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; color: #000;">
+            </div>
+
+            <div class="form-group" style="margin-bottom: 20px;">
+                <label for="description" style="display: block; font-weight: bold; color: #000; margin-bottom: 10px;">Description</label>
+                <textarea id="description" name="description" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; color: #000;"></textarea>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 20px;">
+                <label for="lieu" style="display: block; font-weight: bold; color: #000; margin-bottom: 10px;">Lieu</label>
+                <input type="text" id="lieu" name="lieu" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; color: #000;">
+            </div>
+
+            <div class="form-group" style="margin-bottom: 20px;">
+                <label for="dateDebut" style="display: block; font-weight: bold; color: #000; margin-bottom: 10px;">Date de début</label>
+                <input type="date" id="dateDebut" name="dateDebut" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-size: 16px; color: #000;">
+            </div>
+
+            <button type="submit" class="btn btn-success" style="padding: 12px 25px; font-size: 18px; border: none; border-radius: 6px; background-color: #28a745; color: #fff; cursor: pointer;">Ajouter l'offre</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

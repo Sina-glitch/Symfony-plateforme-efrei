@@ -1,0 +1,231 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #F5F5DC;
+    color: #333333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #008080;
+    padding: 20px;
+    color: white;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 18px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px 5px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: #3498db;
+}
+
+.btn-success {
+    background-color: #27ae60; 
+}
+
+.btn-warning {
+    background-color: #e67e22; 
+}
+
+.btn-danger {
+    background-color: #c0392b; 
+}
+
+.btn-info {
+    background-color: #8e44ad; 
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(51, 51, 51, 0.1);
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333333; 
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333333;
+}
+
+form button {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #2980b9; 
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    box-shadow: 0 4px 10px rgba(51, 51, 51, 0.1);
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #800020;
+    color: white;
+}
+
+
+.hero-section {
+    background-color: #008080; 
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.hero-section h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.hero-section p {
+    font-size: 18px;
+}
+
+
+.offer-detail-table {
+    width: 60%;
+    margin: 40px auto;
+    border-collapse: collapse;
+    box-shadow: 0 4px 10px rgba(51, 51, 51, 0.1);
+    background-color: #fff;
+}
+
+.offer-detail-table th, .offer-detail-table td {
+    padding: 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.offer-detail-table th {
+    background-color: #800020; 
+    color: white;
+}
+
+.offer-detail-buttons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.offer-detail-buttons .btn {
+    margin: 5px;
+}
+
+
+.auth-container {
+    max-width: 400px;
+    margin: 50px auto;
+}
+
+.auth-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(51, 51, 51, 0.1);
+}
+
+.auth-box h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.auth-box .form-group {
+    margin-bottom: 15px;
+}
+
+.auth-box input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.auth-box button {
+    width: 100%;
+    padding: 10px;
+    background-color: #8e44ad;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.auth-box button:hover {
+    background-color: #71368a;
+}
+
+
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}

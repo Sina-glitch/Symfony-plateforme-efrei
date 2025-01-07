@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil de {{ association.nom }}{% endblock %}
+
+{% block body %}
+<h1>{{ association.nom }}</h1>
+<p>{{ association.description }}</p>
+
+<h2>Offres de bénévolat disponibles</h2>
+<ul>
+    {% for offre in association.offres %}
+        <li>
+            <a href="{{ path('offre_show', { id: offre.id }) }}">{{ offre.titre }}</a> - {{ offre.description }}
+        </li>
+    {% else %}
+        <li>Aucune offre disponible pour le moment.</li>
+    {% endfor %}
+</ul>
+
+<a href="{{ path('association_index') }}">Retour à la liste des associations</a>
+{% endblock %}

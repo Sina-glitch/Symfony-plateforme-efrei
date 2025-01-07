@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon Profil{% endblock %}
+
+{% block body %}
+<h1>Mon Profil</h1>
+
+<p><strong>Email :</strong> {{ app.user.email }}</p>
+
+{% if 'ROLE_ASSOCIATION' in app.user.roles %}
+    <p><strong>Type :</strong> Association</p>
+{% elseif 'ROLE_BENEVOLE' in app.user.roles %}
+    <p><strong>Type :</strong> Bénévole</p>
+{% endif %}
+
+<a href="{{ path('home') }}" class="btn btn-primary">Retour à l'accueil</a>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des bénévoles{% endblock %}
+
+{% block body %}
+<h1>Liste des bénévoles</h1>
+
+<ul>
+    {% for benevole in benevoles %}
+        <li>{{ benevole.nom }} {{ benevole.prenom }} - {{ benevole.email }}</li>
+    {% endfor %}
+</ul>
+
+<a href="{{ path('benevole_ajouter') }}">Ajouter un bénévole</a>
+{% endblock %}

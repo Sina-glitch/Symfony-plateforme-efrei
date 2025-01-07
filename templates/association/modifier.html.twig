@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier Association{% endblock %}
+
+{% block body %}
+<div class="form-container">
+    <h1>Modifier l'Association</h1>
+
+    <form method="post">
+        <div class="form-group">
+            <label for="nom">Nom :</label>
+            <input type="text" id="nom" name="nom" value="{{ association.nom }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description :</label>
+            <textarea id="description" name="description" required>{{ association.description }}</textarea>
+        </div>
+
+        <button type="submit" class="btn btn-success">Enregistrer les modifications</button>
+    </form>
+
+    <a href="{{ path('association_index') }}" class="btn btn-primary">Retour à la liste des associations</a>
+</div>
+{% endblock %}

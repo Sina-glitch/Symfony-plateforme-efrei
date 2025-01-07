@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes Candidatures{% endblock %}
+
+{% block body %}
+<div class="hero-section" style="padding: 80px;">
+    <div class="content" style="max-width: 1400px; margin: 0 auto;">
+        <div class="logo">
+            <h1>Mes Candidatures</h1>
+        </div>
+        <p>Voici la liste de vos candidatures envoyées aux missions disponibles.</p>
+
+        <div class="buttons">
+            <a href="{{ path('offre_index') }}" class="btn btn-primary">Retour aux offres de mission</a>
+            {% if app.user and 'ROLE_ASSOCIATION' in app.user.roles %}
+                <a href="{{ path('offre_ajouter') }}" class="btn btn-warning">Ajouter une Offre</a>
+            {% endif %}
+        </div>
+
+        <!-- Tableau des candidatures -->
+        <h2 style="margin-top: 20px;">Mes candidatures</h2>
+        <div class="table-container" style="overflow-x: auto; margin-top: 20px;">
+            <table class="association-table" style="width: 100%; border-collapse: collapse; font-size: 16px; text-align: left; background-color: #fff;">
+                <thead>
+                    <tr>
+                        <th style="padding: 12px; font-weight: bold; color: #000;">Mission</th>
+                        <th style="padding: 12px; font-weight: bold; color: #000;">Statut</th>
+                        <th style="padding: 12px; font-weight: bold; color: #000;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for candidature in candidatures %}
+                        <tr>
+                            <td style="padding: 12px; color: #000;">{{ candidature.offre.titre }}</td>
+                            <td style="padding: 12px; color: #000;">{{ candidature.statut }}</td>
+                            <td style="padding: 12px;">
+                                <a href="{{ path('offre_show', { id: candidature.offre.id }) }}" class="btn btn-success">Voir la mission</a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="3" style="padding: 12px; color: #000; text-align: center;">Aucune candidature envoyée.</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

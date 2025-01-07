@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon Profil{% endblock %}
+
+{% block body %}
+<h1>Mon Profil</h1>
+
+<form method="post" action="{{ path('profil_update') }}">
+    <div>
+        <label for="email">Nouvel Email :</label>
+        <input type="email" id="email" name="email" value="{{ app.user.email }}" required>
+    </div>
+
+    <button type="submit" class="btn btn-success">Mettre à jour</button>
+</form>
+
+{% if app.flashes('success') %}
+    <div class="alert alert-success">
+        {{ app.flashes('success')|first }}
+    </div>
+{% endif %}
+
+<a href="{{ path('home') }}" class="btn btn-primary">Retour à l'accueil</a>
+{% endblock %}
