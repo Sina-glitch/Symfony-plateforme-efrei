@@ -49,7 +49,7 @@ public function register(Request $request, EntityManagerInterface $em, UserPassw
             $user = new User();
             $user->setEmail($email);
 
-            // Vérifie si l'utilisateur existe déjà
+            
             $existingUser = $em->getRepository(User::class)->findOneBy(['email' => $email]);
             if ($existingUser) {
                 $this->addFlash('error', 'Un compte avec cet email existe déjà.');

@@ -52,13 +52,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function getRoles(): array
     {
-        // Convertir le rôle unique en tableau pour Symfony
         return [$this->role ?? 'ROLE_USER'];
     }
 
     public function setRoles(array $roles): self
     {
-        // Convertir le tableau en une chaîne de caractères
         $this->role = $roles[0] ?? 'ROLE_USER';
         return $this;
     }
@@ -70,6 +68,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function eraseCredentials(): void
     {
-        // Effacer les données sensibles ici
+        
     }
 }

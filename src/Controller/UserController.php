@@ -29,7 +29,6 @@ class UserController extends AbstractController
     {
         $user = $this->getUser();
 
-        // Vérifie que l'utilisateur est bien une instance de User
         if (!$user instanceof \App\Entity\User) {
             return $this->redirectToRoute('app_login');
         }
