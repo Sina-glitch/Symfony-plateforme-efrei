@@ -23,6 +23,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 50)]
     private ?string $role = null;
 
+    // Ajoute la méthode getNom()
+    public function getNom(): ?string
+    {
+        return $this->email; // Utilise l'e-mail comme nom par défaut
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -68,6 +74,5 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function eraseCredentials(): void
     {
-        
     }
 }

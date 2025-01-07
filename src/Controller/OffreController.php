@@ -61,11 +61,14 @@ public function ajouter(Request $request, EntityManagerInterface $em): Response
         $em->persist($offre);
         $em->flush();
 
+        $this->addFlash('success', 'Offre ajoutée avec succès !');
+
         return $this->redirectToRoute('offre_index');
     }
 
     return $this->render('offre/ajouter.html.twig');
 }
+
 
 
 #[Route('/offre/{id}/postuler', name: 'offre_postuler')]

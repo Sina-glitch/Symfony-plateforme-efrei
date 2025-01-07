@@ -26,8 +26,9 @@ class Offre
     private ?\DateTimeInterface $dateDebut = null;
 
     #[ORM\ManyToOne(targetEntity: User::class)]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(name: 'association_id', referencedColumnName: 'id', nullable: false, onDelete: 'CASCADE')]
     private ?User $association = null;
+    
 
     public function getId(): ?int
     {
